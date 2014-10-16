@@ -1,0 +1,16 @@
+.column {
+    float: left;
+    margin: {
+        left: $span-gutter-width;
+        right: $span-gutter-width;
+    }
+}
+.container {
+    margin: 0 auto;
+    width: $container-width;
+}
+@for $i from 1 through $columns {
+    .span-#{$i} {
+        @include columns($i);
+    }
+}

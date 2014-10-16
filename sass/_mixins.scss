@@ -1,0 +1,4 @@
+@mixin columns($cols) {
+    @extend .column;
+    width: $cols * $span-width + ($span-gutter-width * 2) * ($cols - 1);
+}
