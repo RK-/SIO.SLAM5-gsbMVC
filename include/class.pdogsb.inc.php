@@ -57,10 +57,19 @@ class PdoGsb {
      * @return l'id, le nom et le prénom sous la forme d'un tableau associatif 
      */
     public function getInfosVisiteur($login, $mdp) {
-        $req = "select visiteur.id as id, visiteur.nom as nom, visiteur.prenom as prenom from visiteur 
-		where visiteur.login='$login' and visiteur.mdp='$mdp'";
-        $rs = PdoGsb::$monPdo->query($req);
-        $ligne = $rs->fetch();
+//       $req = "select visiteur.id as id, visiteur.nom as nom, visiteur.prenom as prenom from visiteur 
+//		where visiteur.login='$login' and visiteur.mdp='$mdp'";
+//        $rs = PdoGsb::$monPdo->query($req);
+//        $ligne = $rs->fetch();
+//        return $ligne;
+
+        $requete_prepare = PdoGsb::$monPdo->prepare("SELECT visiteur.id AS id, visiteur.nom AS nom, visiteur.prenom AS prenom "
+                . "FROM visiteur "
+                . "WHERE visiteur.login = :unLogin AND visiteur.mdp = :unMdp");
+        $requete_prepare->bindParam(':unLogin', $login, PDO::PARAM_STR);
+        $requete_prepare->bindParam(':unMdp', $mdp, PDO::PARAM_STR);
+        $requete_prepare->execute();
+        $ligne = $requete_prepare->fetch();
         return $ligne;
     }
 
@@ -306,5 +315,6 @@ class PdoGsb {
 		where fichefrais.idvisiteur ='$idVisiteur' and fichefrais.mois = '$mois'";
         PdoGsb::$monPdo->exec($req);
     }
+
 }
 ?>
