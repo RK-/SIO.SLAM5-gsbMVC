@@ -2,14 +2,14 @@
 
 /**
  * Classe d'accès aux données. 
-
+ * 
  * Utilise les services de la classe PDO
  * pour l'application GSB
  * Les attributs sont tous statiques,
  * les 4 premiers pour la connexion
  * $monPdo de type PDO 
  * $monPdoGsb qui contiendra l'unique instance de la classe
-
+ * 
  * @package default
  * @author Cheri Bibi
  * @version    1.0
@@ -296,8 +296,8 @@ class PdoGsb {
 
     /**
      * Modifie l'état et la date de modification d'une fiche de frais
-     * 
      * Modifie le champ idEtat et met la date de modif à aujourd'hui
+     * 
      * @param $idVisiteur 
      * @param $mois sous la forme aaaamm
      */
