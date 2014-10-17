@@ -15,7 +15,7 @@ function estConnecte(){
 }
 /**
  * Enregistre dans une variable session les infos d'un visiteur
- 
+ * 
  * @param $id 
  * @param $nom
  * @param $prenom

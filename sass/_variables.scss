@@ -1,0 +1,7 @@
+$span-width: 70px;
+$span-gutter-width: 5px;
+$span-outer-width: $span-width + $span-gutter-width * 2;
+$columns : 12;
+$container-width: $columns * $span-outer-width;
+$default-font-stack: Arial, sans-serif;
+$links: #19A4E8;
