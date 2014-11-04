@@ -6,15 +6,16 @@
     <meta name="description" content="" />
     <meta name="author" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="./css/screen.css" media="screen, projection" rel="stylesheet" type="text/css" />
-    <link href="./css/print.css" media="print" rel="stylesheet" type="text/css" />
-    <!--[if IE]>
-        <link href="./css/ie.css" media="screen, projection" rel="stylesheet" type="text/css" />
-    <![endif]-->
+    <link href="./css/style.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-    <div id="header">
-        <div id="logo">GSB-FRAIS</div>
-<!--        <img src="./img/logo.jpg" id="logoGSB" alt="Laboratoire Galaxy-Swiss Bourdin" title="Laboratoire Galaxy-Swiss Bourdin" />
-        <h1>Suivi du remboursement des frais</h1>-->
-    </div>
+    <div class="container">
+        <div class="header">
+            <ul class="nav nav-pills pull-right" role="tablist">
+              <li class="active"><a href="#">Accueil</a></li>
+              <li><a href="#">Saisie fiche de frais</a></li>
+              <li><a href="#">Mes fiches de frais</a></li>
+              <li><a href="#">Déconnexion</a></li>
+            </ul>
+            <h3><img src="./img/logo.jpg" alt="Laboratoire Galaxy-Swiss Bourdin" title="Laboratoire Galaxy-Swiss Bourdin"></h3>
+        </div>
