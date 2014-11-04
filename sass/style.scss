@@ -1,0 +1,16 @@
+// Import de mes variables
+@import "variables";
+// Import de bootstrap qui apporte des fonctionnalités utiles
+@import "bootstrap-compass";
+// modification des variables de bootstrap
+@import "bootstrap-variables";
+// importer uniquement les modules utiles
+@import "bootstrap-custom";
+// Import de compass pour gérer quelques mixins
+@import "compass";
+// Mes mixins
+@import "mixins";
+// Import de la gestion des typographie
+@import "typo";
+// Import du CSS du template
+@import "layout";
