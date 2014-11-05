@@ -56,7 +56,7 @@ class PdoGsb {
     // ne pas oublier modifier les mdp dans la base car pas hasher
     private function hash_password($mdp){
         // Rajouter attribut dans la classe et SALT à prendre ici : https://api.wordpress.org/secret-key/1.1/salt/
-        $salt = bin2hex(mcrypt_create_iv(32,MCRYPT_DEV_URANDOM));
+        $salt = '];(<gx`fKiOpt8?X%;xJcPk9d261[tkG|-<rvTjRF+2V`4zqN+ {-=b9YX^Oe0]@';
         $hash = hash("sha256",  $mdp.$salt);
         return $salt.$hash;
     }
