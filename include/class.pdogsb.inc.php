@@ -23,7 +23,8 @@ class PdoGsb {
     private static $mdp = '';
     private static $monPdo;
     private static $monPdoGsb = null;
-    //private static $salt = "];(gx`fKiOpt8?X%;xJcPk9d261[tkG63|-rvTjRF+2V`4zqN+ {-=b9YX^Oe0]@";
+    // Génération :  bin2hex(mcrypt_create_iv(32, MCRYPT_DEV_URANDOM));
+    private static $salt = 'eca46a4797240dd4936bdf61bf32768c62f539ee46472cf9db01f50231328d2e';
 
     /**
      * Constructeur privé, crée l'instance de PDO qui sera sollicitée
@@ -54,15 +55,7 @@ class PdoGsb {
     // Supprimer mes commentaires une fois fait XD
     // Rajoute dans les commentaires de doc que tu as modifier, faut looker sur le net lequel est avec le @
     // Rajouter commentaire de documentation
-    // ne pas oublier modifier les mdp dans la base car pas hasher
-    
-//    private function hash_password($mdp){
-//        // Rajouter attribut dans la classe et SALT à prendre ici : https://api.wordpress.org/secret-key/1.1/salt/
-//        $salt = '];(<gx`fKiOpt8?X%;xJcPk9d261[tkG|-<rvTjRF+2V`4zqN+ {-=b9YX^Oe0]@';
-//        $hash = hash("sha256",  $mdp.$salt);
-//        return $salt.$hash;
-//    }
-    
+    // ne pas oublier modifier les mdp dans la base car pas hasher    
     /**
      * Retourne les informations d'un visiteur
      * @param $login 
@@ -75,8 +68,7 @@ class PdoGsb {
         //        $rs = PdoGsb::$monPdo->query($req);
         //        $ligne = $rs->fetch();
         //        return $ligne;
-        $salt = "];(gx`fKiOpt8?X%;xJcPk9d261[tkG63|-rvTjRF+2V`4zqN+ {-=b9YX^Oe0]@";
-        $mdp = hash("sha256",  $mdp.$salt);
+        $mdp = PdoGsb::$salt . hash("sha256", $mdp . PdoGsb::$salt);
         $requete_prepare = PdoGsb::$monPdo->prepare("SELECT visiteur.id AS id, visiteur.nom AS nom, visiteur.prenom AS prenom "
                 . "FROM visiteur "
                 . "WHERE visiteur.login = :unLogin AND visiteur.mdp = :unMdp");
