@@ -10,6 +10,9 @@
 </head>
 <body>
     <div class="container">
+        <?php 
+            if(estConnecte()) {
+        ?>
         <div class="header">
             <ul class="nav nav-pills pull-right" role="tablist">
               <li class="active"><a href="#">Accueil</a></li>
@@ -19,3 +22,8 @@
             </ul>
             <h3><img src="./img/logo.jpg" alt="Laboratoire Galaxy-Swiss Bourdin" title="Laboratoire Galaxy-Swiss Bourdin"></h3>
         </div>
+        <?php 
+            } else {
+                echo '<h3><img src="./img/logo.jpg" alt="Laboratoire Galaxy-Swiss Bourdin" title="Laboratoire Galaxy-Swiss Bourdin"></h3>';
+            }
+        ?>

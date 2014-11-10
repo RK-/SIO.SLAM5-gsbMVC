@@ -1,21 +1,28 @@
-﻿<div id="contenu">
-      <h2>Identification utilisateur</h2>
-
-
-<form method="POST" action="index.php?uc=connexion&action=valideConnexion">
-   
-    
-			<p>
-       <label for="nom">Login*</label>
-       <input id="login" type="text" name="login"  size="30" maxlength="45">
-      </p>
-			<p>
-				<label for="mdp">Mot de passe*</label>
-			  <input id="mdp"  type="password"  name="mdp" size="30" maxlength="45">
-      </p>
-         <input type="submit" value="Valider" name="valider">
-         <input type="reset" value="Annuler" name="annuler"> 
-      </p>
-</form>
-
+<div class="row">
+    <div class="col-md-6 col-md-offset-3">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Identification utilisateur</h3>
+            </div>
+            <div class="panel-body">
+                <form role="form" method="post" action="index.php?uc=connexion&action=valideConnexion">
+                    <fieldset>
+                        <div class="form-group">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                <input class="form-control" placeholder="Login" name="login" type="text" maxlength="45">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                                <input class="form-control" placeholder="Mot de pass" name="mdp" type="password" maxlength="45">
+                            </div>
+                        </div>
+                        <input class="btn btn-lg btn-success btn-block" type="submit" value="Se connecter">
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </div>
 </div>
