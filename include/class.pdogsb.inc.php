@@ -163,7 +163,8 @@ class PdoGsb {
      */
     public function majFraisForfait($idVisiteur, $mois, $lesFrais) {
         $lesCles = array_keys($lesFrais);
-        foreach ($lesCles as $lesFrais) {         PdoGsb::$monPdo->exec($req);
+        foreach($lesCles as $unIdFrais){
+            $qte = $lesFrais[$unIdFrais];
             $requete_prepare = PdoGSB::$monPdo->prepare("UPDATE lignefraisforfait "
                     . "SET lignefraisforfait.quantite = :uneQte "
                     . "WHERE lignefraisforfait.idvisiteur = :unIdVisiteur "
@@ -278,12 +279,13 @@ class PdoGsb {
      * @param $montant : le montant
      */
     public function creeNouveauFraisHorsForfait($idVisiteur, $mois, $libelle, $date, $montant) {
+        $dateFr = dateFrancaisVersAnglais($date);
         $requete_prepare = PdoGSB::$monPdo->prepare("INSERT INTO lignefraishorsforfait "
                 . "VALUES ('', :unIdVisiteur,:unMois, :unLibelle, :uneDateFr, :unMontant) ");
         $requete_prepare->bindParam(':unIdVisiteur', $idVisiteur, PDO::PARAM_STR);
         $requete_prepare->bindParam(':unMois', $mois, PDO::PARAM_STR);
         $requete_prepare->bindParam(':unLibelle', $libelle, PDO::PARAM_STR);
-        $requete_prepare->bindParam(':uneDateFr', $date, PDO::PARAM_STR);
+        $requete_prepare->bindParam(':uneDateFr', $dateFr, PDO::PARAM_STR);
         $requete_prepare->bindParam(':unMontant', $montant, PDO::PARAM_INT);
         $requete_prepare->execute();
     }
