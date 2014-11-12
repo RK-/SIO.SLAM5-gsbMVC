@@ -21,12 +21,7 @@
 			
 			<?php
 				}
-			?>
-			
-			
-			
-			
-           
+			?>          
           </fieldset>
       </div>
       <div class="piedForm">
