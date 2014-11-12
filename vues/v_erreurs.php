@@ -2,7 +2,7 @@
 <?php 
 foreach($_REQUEST['erreurs'] as $erreur)
 	{
-      echo "<p>$erreur</p>";
+      echo "<p>". htmlspecialchars($erreur) . "</p>";
 	}
 ?>
 </div>

@@ -1,10 +1,10 @@
 ﻿<?php
 if(!isset($_REQUEST['action'])){
-	$_REQUEST['action'] = 'demandeConnexion';
+	$_REQUEST['action'] = 'demandeDeconnexion';
 }
 $action = $_REQUEST['action'];
 switch($action){
-	case 'demandeConnexion':{
+	case 'demandeDeconnexion':{
 		include("vues/v_connexion.php");
 		break;
 	}
@@ -12,7 +12,7 @@ switch($action){
 		$login = $_REQUEST['login'];
 		$mdp = $_REQUEST['mdp'];
 		$visiteur = $pdo->getInfosVisiteur($login,$mdp);
-		if(!is_array( $visiteur)){
+		if(!is_array($visiteur)){
 			ajouterErreur("Login ou mot de passe incorrect");
 			include("vues/v_erreurs.php");
 			include("vues/v_connexion.php");
