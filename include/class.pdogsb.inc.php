@@ -302,7 +302,7 @@ class PdoGsb {
         //        $req = "insert into fichefrais(idvisiteur,mois,nbJustificatifs,montantValide,dateModif,idEtat) 
         //		values('$idVisiteur','$mois',0,0,now(),'CR')";
         //        PdoGsb::$monPdo->exec($req);
-        $requete_prepare = PdoGsb::$monPdo->prepare("INERT INTO fichefrais "
+        $requete_prepare = PdoGsb::$monPdo->prepare("INSERT INTO fichefrais "
                 . "(idvisiteur,mois,nbJustificatifs,montantValide,dateModif,idEtat) "
                 . "VALUES (:unIdVisiteur,:unMois,0,0,now(),'CR')");
         $requete_prepare->bindParam(':unIdVisiteur', $idVisiteur, PDO::PARAM_STR);
@@ -314,12 +314,12 @@ class PdoGsb {
             //            $req = "insert into lignefraisforfait(idvisiteur,mois,idFraisForfait,quantite) 
             //			values('$idVisiteur','$mois','$unIdFrais',0)";
             //            PdoGsb::$monPdo->exec($req);
-            $requete_prepare = PdoGsb::$monPdo->prepare("INERT INTO lignefraisforfait "
+            $requete_prepare = PdoGsb::$monPdo->prepare("INSERT INTO lignefraisforfait "
                 . "(idvisiteur,mois,idFraisForfait,quantite) "
                 . "VALUES(:unIdVisiteur, :unMois, :idFrais, 0)");
             $requete_prepare->bindParam(':unIdVisiteur', $idVisiteur, PDO::PARAM_STR);
             $requete_prepare->bindParam(':unMois', $mois, PDO::PARAM_STR);
-            $requete_prepare->bindParam(':idFrais', $unIdFrais, PDO::PARAM_STR);
+            $requete_prepare->bindParam(':idFrais', $unIdFrais, PDO::PARAM_INT);
             $requete_prepare->execute(); 
         }
     }
