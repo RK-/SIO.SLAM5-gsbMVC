@@ -31,8 +31,10 @@
       </div>
       <div class="piedForm">
       <p>
-        <input id="ok" type="submit" value="Valider" size="20" />
-        <input id="annuler" type="reset" value="Effacer" size="20" />
+        <span class="input-group-btn">
+            <button class="btn btn-default" type="submit">Ajouter</button>
+            <button class="btn btn-default" type="reset">Effacer</button>
+        </span>
       </p> 
       </div>
         

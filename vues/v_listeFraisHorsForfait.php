@@ -36,27 +36,56 @@
           <fieldset>
             <legend>Nouvel élément hors forfait
             </legend>
-            <p>
-              <label for="txtDateHF">Date (jj/mm/aaaa): </label>
-              <input type="text" id="txtDateHF" name="dateFrais" size="10" maxlength="10" value=""  />
-            </p>
-            <p>
-              <label for="txtLibelleHF">Libellé</label>
-              <input type="text" id="txtLibelleHF" name="libelle" size="70" maxlength="256" value="" />
-            </p>
-            <p>
-              <label for="txtMontantHF">Montant : </label>
-              <input type="text" id="txtMontantHF" name="montant" size="10" maxlength="10" value="" />
-            </p>
-          </fieldset>
+            <div class="row">
+                <div class="col-md-12">
+                    <p>
+                      <label for="txtDateHF">Date (jj/mm/aaaa): </label>
+                        <div class="row">
+                          <div class="form-group">
+                            <div class="col-sm-5">
+                              <input type="text" id="txtDateHF" name="dateFrais" class="form-control" id="text">
+                            </div>
+                          </div>
+                        </div>
+                    </p>
+                    <p>
+                      <label for="txtLibelleHF">Libellé</label>             
+                        <div class="row">
+                          <div class="form-group">
+                            <div class="col-sm-5">
+                              <input type="text" id="txtLibelleHF" name="libelle" class="form-control" id="text">
+                            </div>
+                          </div>
+                        </div>
+                    </p>
+                    <p>
+                      <label for="txtMontantHF">Montant : </label>
+                        <div class="row">
+                            <div class="form-group">
+                                <div class="col-sm-4">
+                                    <div class="input-group"> 
+                                      <span class="input-group-addon">€</span>
+                                      <input type="text" id="txtMontantHF" name="montant" class="form-control" value="">
+                                    </div>
+                                </div>
+                            </div>       
+                        </div>
+                    </p>
+                </div>
+            </div>
+              </fieldset>
+          </div>
+          <br />
+          <div class="piedForm">
+          <p>            
+            <span class="input-group-btn">
+                <button class="btn btn-default" type="submit">Ajouter</button>
+                <button class="btn btn-default" type="reset">Effacer</button>
+            </span>
+
+          </p> 
+          
       </div>
-      <div class="piedForm">
-      <p>
-        <input id="ajouter" type="submit" value="Ajouter" size="20" />
-        <input id="effacer" type="reset" value="Effacer" size="20" />
-      </p> 
-      </div>
-        
       </form>
   </div>
   
