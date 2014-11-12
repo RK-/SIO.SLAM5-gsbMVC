@@ -5291,3 +5291,7 @@ a.thumbnail.active {
   align-items: center;
   justify-content: center;
 }
+
+.logo {
+  display: inline-block;
+}

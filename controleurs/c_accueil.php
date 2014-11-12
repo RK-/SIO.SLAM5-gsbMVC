@@ -1,8 +1,7 @@
 ﻿<?php
 if ($estConnecte) {
     include("vues/v_accueil.php");
-}
-else {
+} else {
     include("vues/v_connexion.php");
 }
 ?>
