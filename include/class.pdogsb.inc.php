@@ -51,14 +51,7 @@ class PdoGsb {
         }
         return PdoGsb::$monPdoGsb;
     }
-<<<<<<< HEAD
 
-    // Supprimer mes commentaires une fois fait XD
-    // Rajoute dans les commentaires de doc que tu as modifier, faut looker sur le net lequel est avec le @
-    // Rajouter commentaire de documentation
-=======
-    
->>>>>>> origin/master
     /**
      * Retourne les informations d'un visiteur
      * @param $login 
@@ -211,15 +204,7 @@ class PdoGsb {
      */
     public function estPremierFraisMois($idVisiteur, $mois) {
         $ok = false;
-<<<<<<< HEAD
-        //        $req = "select count(*) as nblignesfrais from fichefrais 
-        //		where fichefrais.mois = '$mois' and fichefrais.idvisiteur = '$idVisiteur'";
-        //        $res = PdoGsb::$monPdo->query($req);
-        //        $laLigne = $res->fetch();
-        $requete_prepare = PdoGsb::$monPdo->prepare("SELECT COUNT(*) as nblignesfrais "
-=======
         $requete_prepare =  PdoGsb::$monPdo->prepare("SELECT COUNT(*) as nblignesfrais "
->>>>>>> origin/master
                 . "FROM fichefrais "
                 . "WHERE fichefrais.mois = :unMois "
                 . "AND fichefrais.idvisiteur = :unIdVisiteur");
@@ -240,14 +225,7 @@ class PdoGsb {
      * @return le mois sous la forme aaaamm
      */
     public function dernierMoisSaisi($idVisiteur) {
-<<<<<<< HEAD
-        //        $req = "select max(mois) as dernierMois from fichefrais where fichefrais.idvisiteur = '$idVisiteur'";
-        //        $res = PdoGsb::$monPdo->query($req);
-        //        $laLigne = $res->fetch();
-        $requete_prepare = PdoGsb::$monPdo->prepare("SELECT MAX(mois) as dernierMois "
-=======
        $requete_prepare =  PdoGsb::$monPdo->prepare("SELECT MAX(mois) as dernierMois "
->>>>>>> origin/master
                 . "FROM fichefrais "
                 . "WHERE fichefrais.idvisiteur = :unIdVisiteur");
         $requete_prepare->bindParam(':unIdVisiteur', $idVisiteur, PDO::PARAM_STR);
