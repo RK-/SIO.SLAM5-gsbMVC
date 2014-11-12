@@ -308,8 +308,8 @@ th {
 }
 @font-face {
   font-family: 'Glyphicons Halflings';
-  src: url(../fonts/bootstrap/glyphicons-halflings-regular.eot);
-  src: url(../fonts/bootstrap/glyphicons-halflings-regular.eot?#iefix) format("embedded-opentype"), url(../fonts/bootstrap/glyphicons-halflings-regular.woff) format("woff"), url(../fonts/bootstrap/glyphicons-halflings-regular.ttf) format("truetype"), url(../fonts/bootstrap/glyphicons-halflings-regular.svg#glyphicons_halflingsregular) format("svg");
+  src: url(../fonts/bootstrap/glyphicons-halflings-regular.eot?1414421984);
+  src: url(../fonts/bootstrap/glyphicons-halflings-regular.eot?&1414421984#iefix) format("embedded-opentype"), url(../fonts/bootstrap/glyphicons-halflings-regular.woff?1414421984) format("woff"), url(../fonts/bootstrap/glyphicons-halflings-regular.ttf?1414421984) format("truetype"), url(../fonts/bootstrap/glyphicons-halflings-regular.svg?1414421984#glyphicons_halflingsregular) format("svg");
 }
 .glyphicon {
   position: relative;
@@ -5278,4 +5278,16 @@ a.thumbnail.active {
 }
 .header {
   border-bottom: 1px solid #e5e5e5;
+}
+
+.vertical-align {
+  display: flex;
+  flex-direction: row;
+}
+
+.vertical-align > [class^="col-"],
+.vertical-align > [class*=" col-"] {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

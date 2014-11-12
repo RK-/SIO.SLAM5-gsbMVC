@@ -1,6 +1,6 @@
 ﻿<?php
 if(!isset($_REQUEST['action'])){
-	$_REQUEST['action'] = 'demandeConnexion';
+	$_REQUEST['action'] = 'demandeDeconnexion';
 }
 $action = $_REQUEST['action'];
 switch($action){
