@@ -1,35 +1,23 @@
-<div id="contenu">
+<div class="row">    
     <h2>Renseigner ma fiche de frais du mois <?php echo $numMois . "-" . $numAnnee ?></h2>
-
-    <form method="post"  action="index.php?uc=gererFrais&action=validerMajFraisForfait">
-        <div class="corpsForm">
-
-            <fieldset>
-                <legend>Eléments forfaitisés
-                </legend>
+    <h3>Eléments forfaitisés</h3>
+    <form method="post" action="index.php?uc=gererFrais&action=validerMajFraisForfait" role="form">
+        <fieldset>       
+            <?php
+            foreach ($lesFraisForfait as $unFrais) {
+                $idFrais = $unFrais['idfrais'];
+                $libelle = $unFrais['libelle'];
+                $quantite = $unFrais['quantite'];
+                ?>
+                <div class="form-group">
+                    <label for="idFrais"><?php echo $libelle ?></label>
+                    <input type="text" id="idFrais" name="lesFrais[<?php echo $idFrais ?>]" size="10" maxlength="5" value="<?php echo $quantite ?>" >
+                </div>
                 <?php
-                foreach ($lesFraisForfait as $unFrais) {
-                    $idFrais = $unFrais['idfrais'];
-                    $libelle = $unFrais['libelle'];
-                    $quantite = $unFrais['quantite'];
-                    ?>
-                    <p>
-                        <label for="idFrais"><?php echo $libelle ?></label>
-                        <input type="text" id="idFrais" name="lesFrais[<?php echo $idFrais ?>]" size="10" maxlength="5" value="<?php echo $quantite ?>" >
-                    </p>
-
-                    <?php
-                }
-                ?>          
-            </fieldset>
-        </div>
-        <div class="piedForm">
-            <p>
-                <span class="input-group-btn">
-                    <button class="btn btn-default" type="submit">Ajouter</button>
-                    <button class="btn btn-default" type="reset">Effacer</button>
-                </span>
-            </p> 
-        </div>
-
+            }
+            ?>
+            <button class="btn btn-success" type="submit">Ajouter</button>
+            <button class="btn btn-danger" type="reset">Effacer</button>
+        </fieldset>
     </form>
+</div>

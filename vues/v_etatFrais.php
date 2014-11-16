@@ -31,7 +31,7 @@
         </tr>
     </table>
 </div>
-<div class="panel panel-info"">
+<div class="panel panel-info">
     <div class="panel-heading">Descriptif des éléments hors forfait - <?php echo $nbJustificatifs ?> justificatifs reçus</div>
     <table class="table table-bordered table-responsive">
         <tr>

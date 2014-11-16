@@ -87,8 +87,7 @@ class PdoGsb {
         $requete_prepare->bindParam(':unMois', $mois, PDO::PARAM_STR);
         $requete_prepare->execute();
         $lesLignes = $requete_prepare->fetchAll();
-        $nbLignes = count($lesLignes);
-        for ($i = 0; $i < $nbLignes; $i++) {
+        for ($i = 0; $i < count($lesLignes); $i++) {
             $date = $lesLignes[$i]['date'];
             $lesLignes[$i]['date'] = dateAnglaisVersFrancais($date);
         }
@@ -124,17 +123,16 @@ class PdoGsb {
      */
     public function getLesFraisForfait($idVisiteur, $mois) {
         $requete_prepare = PdoGSB::$monPdo->prepare("SELECT fraisforfait.id as idfrais, "
-                . "fraisforfait.libelle as libelle,lignefraisforfait.quantite as quantite "
+                . "fraisforfait.libelle as libelle, lignefraisforfait.quantite as quantite "
                 . "FROM lignefraisforfait "
                 . "INNER JOIN fraisforfait ON fraisforfait.id = lignefraisforfait.idfraisforfait "
                 . "WHERE lignefraisforfait.idvisiteur = :unIdVisiteur "
-                . "AND lignefraisforfait.mois= :unMois "
+                . "AND lignefraisforfait.mois = :unMois "
                 . "ORDER BY lignefraisforfait.idfraisforfait");
         $requete_prepare->bindParam(':unIdVisiteur', $idVisiteur, PDO::PARAM_STR);
         $requete_prepare->bindParam(':unMois', $mois, PDO::PARAM_STR);
         $requete_prepare->execute();
-        $lesLignes = $requete_prepare->fetchAll();
-        return $lesLignes;
+        return $requete_prepare->fetchAll();
     }
 
     /**
@@ -147,8 +145,7 @@ class PdoGsb {
                 . "FROM fraisforfait "
                 . "ORDER BY fraisforfait.id");
         $requete_prepare->execute();
-        $lesLignes = $requete_prepare->fetchAll();
-        return $lesLignes;
+        return $requete_prepare->fetchAll();
     }
 
     /**
@@ -205,15 +202,14 @@ class PdoGsb {
      */
     public function estPremierFraisMois($idVisiteur, $mois) {
         $ok = false;
-        $requete_prepare =  PdoGsb::$monPdo->prepare("SELECT COUNT(*) as nblignesfrais "
+        $requete_prepare =  PdoGsb::$monPdo->prepare("SELECT fichefrais.mois "
                 . "FROM fichefrais "
                 . "WHERE fichefrais.mois = :unMois "
                 . "AND fichefrais.idvisiteur = :unIdVisiteur");
         $requete_prepare->bindParam(':unMois', $mois, PDO::PARAM_STR);
         $requete_prepare->bindParam(':unIdVisiteur', $idVisiteur, PDO::PARAM_STR);
         $requete_prepare->execute();
-        $laLigne = $requete_prepare->fetch();
-        if ($laLigne['nblignesfrais'] == 0) {
+        if (!$requete_prepare->fetch()) {
             $ok = true;
         }
         return $ok;
@@ -263,7 +259,7 @@ class PdoGsb {
                     . "VALUES(:unIdVisiteur, :unMois, :idFrais, 0)");
             $requete_prepare->bindParam(':unIdVisiteur', $idVisiteur, PDO::PARAM_STR);
             $requete_prepare->bindParam(':unMois', $mois, PDO::PARAM_STR);
-            $requete_prepare->bindParam(':idFrais', $unIdFrais, PDO::PARAM_INT);
+            $requete_prepare->bindParam(':idFrais', $unIdFrais['idfrais'], PDO::PARAM_STR);
             $requete_prepare->execute();
         }
     }
